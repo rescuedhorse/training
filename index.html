@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workplace Harassment &amp; Discrimination Prevention Training</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#f4f4f0;color:#1a1a1a;font-size:16px;line-height:1.7}
+.page{max-width:780px;margin:0 auto;padding:24px 20px 60px}
+.progress-wrap{background:#e0e0d8;border-radius:99px;height:8px;margin-bottom:10px;overflow:hidden}
+.progress-fill{height:100%;background:#1a6e52;border-radius:99px;transition:width 0.4s ease}
+.progress-label{font-size:13px;color:#666;margin-bottom:14px}
+.nav-dots{display:flex;justify-content:center;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#ccc;cursor:pointer;border:none;transition:all 0.2s;padding:0}
+.dot.active{background:#1a6e52;transform:scale(1.35)}
+.dot.visited{background:#7ecdb0}
+.slide{display:none}
+.slide.active{display:block;animation:fi 0.22s ease}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:22px;font-weight:700;margin-bottom:12px;color:#111;line-height:1.3}
+h2{font-size:18px;font-weight:700;margin:18px 0 8px;color:#111}
+h3{font-size:15px;font-weight:700;margin-bottom:5px;color:#111}
+p{margin-bottom:11px;color:#444}
+p:last-child{margin-bottom:0}
+strong{font-weight:700;color:#222}
+em{font-style:italic}
+ul{margin:0 0 11px 18px;color:#444}
+ul li{margin-bottom:4px}
+.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:15px 18px;margin-bottom:12px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px;margin-bottom:12px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;margin:2px 3px 5px 0;letter-spacing:0.03em}
+.tag-blue{background:#dbeeff;color:#0a4a8a}
+.tag-teal{background:#d4f5e9;color:#085041}
+.tag-amber{background:#fef0d0;color:#7a4a00}
+.tag-red{background:#fde8e8;color:#7a1f1f}
+.tag-purple{background:#ede8fe;color:#3a2a8a}
+.box-green{border-left:4px solid #1a6e52;background:#edfaf4;padding:11px 15px;border-radius:0 8px 8px 0;margin-bottom:12px}
+.box-green p{color:#0a4a30;margin:0}
+.box-red{border-left:4px solid #d93535;background:#fdeaea;padding:11px 15px;border-radius:0 8px 8px 0;margin-bottom:12px}
+.box-red p{color:#6a1010;margin:0}
+.box-blue{border-left:4px solid #2a7add;background:#e8f2ff;padding:11px 15px;border-radius:0 8px 8px 0;margin-bottom:12px}
+.box-blue p{color:#0a2a6a;margin:0}
+.scenario{background:#f8f8f4;border:1px solid #ddd;border-radius:12px;padding:14px 18px;margin-bottom:12px}
+.sc-label{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:12px}
+th{text-align:left;padding:8px 11px;background:#f0f0ea;font-weight:700;border-bottom:1px solid #ccc;color:#222}
+td{padding:7px 11px;border-bottom:1px solid #e8e8e4;color:#555}
+.btn-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.btn{font-family:inherit;font-size:14px;font-weight:600;padding:9px 20px;border-radius:8px;cursor:pointer;border:1px solid #bbb;background:#fff;color:#333;transition:all 0.15s}
+.btn:hover{background:#efefea}
+.btn:active{transform:scale(0.98)}
+.btn-primary{background:#1a6e52;color:#fff;border-color:#1a6e52}
+.btn-primary:hover{background:#145a42;border-color:#145a42;color:#fff}
+.btn-print{background:#1a3a6e;color:#fff;border-color:#1a3a6e}
+.btn-print:hover{background:#122d58;border-color:#122d58;color:#fff}
+.quiz-option{display:block;width:100%;text-align:left;padding:10px 14px;margin-bottom:7px;border-radius:8px;border:1px solid #ccc;cursor:pointer;font-size:15px;font-family:inherit;color:#333;background:#fff;transition:all 0.15s}
+.quiz-option:hover:not(:disabled){background:#f0f0ea;border-color:#999}
+.quiz-option.correct{background:#d4f5e9;border-color:#1a6e52;color:#0a3a28;font-weight:600}
+.quiz-option.incorrect{background:#fdeaea;border-color:#d93535;color:#6a1010}
+.quiz-option.show-correct{background:#d4f5e9;border-color:#1a6e52;color:#0a3a28}
+.quiz-option:disabled{cursor:default}
+.feedback{padding:9px 13px;border-radius:8px;margin-top:7px;font-size:14px;line-height:1.5;display:none}
+.feedback.show{display:block}
+.feedback.correct{background:#d4f5e9;color:#0a3a28;border:1px solid #1a6e52}
+.feedback.incorrect{background:#fdeaea;color:#6a1010;border:1px solid #d93535}
+.kc-block{background:#f8f8f4;border:1px solid #ddd;border-radius:12px;padding:14px 18px;margin:14px 0}
+.kc-label{font-size:11px;font-weight:700;color:#1a6e52;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px}
+.kc-q{font-size:15px;font-weight:600;color:#222;margin-bottom:9px}
+.toc-item{display:flex;align-items:center;gap:11px;padding:8px 0;border-bottom:1px solid #eee;font-size:14px;color:#444}
+.toc-num{width:24px;height:24px;border-radius:50%;background:#eee;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:#555}
+.sbanner{background:#1a6e52;color:#fff;border-radius:10px;padding:13px 18px;margin-bottom:18px}
+.sbanner .snum{font-size:11px;font-weight:700;letter-spacing:0.06em;opacity:0.8;margin-bottom:2px}
+.sbanner h1{color:#fff;margin:0;font-size:20px}
+.score-ring{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;margin:14px auto;border:5px solid #1a6e52}
+.score-ring.fail{border-color:#d93535}
+.score-num{font-size:28px;font-weight:700;color:#111}
+.score-pct{font-size:12px;color:#666}
+.result-box{text-align:center;background:#fff;border:2px solid #1a6e52;border-radius:12px;padding:22px 18px;margin-top:14px}
+.result-box.fail{border-color:#d93535}
+.grounds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:6px;margin-bottom:14px}
+.ground-pill{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 11px;font-size:13px;color:#333;font-weight:500}
+
+/*  NAME INPUT PROMPT  */
+.name-prompt{background:#fff;border:2px solid #1a6e52;border-radius:12px;padding:22px 20px;margin-top:14px;text-align:center}
+.name-prompt h2{color:#1a6e52;margin-bottom:8px}
+.name-prompt p{color:#444;margin-bottom:14px;font-size:14px}
+.name-input{width:100%;font-family:inherit;font-size:16px;padding:10px 14px;border:1px solid #bbb;border-radius:8px;margin-bottom:6px;outline:none}
+.name-input:focus{border-color:#1a6e52;box-shadow:0 0 0 3px rgba(26,110,82,0.12)}
+.name-err{color:#c0392b;font-size:13px;margin-bottom:10px;display:none}
+
+/*  CERTIFICATE  */
+.cert-wrap{margin-top:20px}
+.cert{background:#fff;border:3px solid #1a6e52;border-radius:16px;padding:36px 32px;text-align:center;position:relative;overflow:hidden}
+.cert::before{content:"";position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px solid #b0d8c8;border-radius:10px;pointer-events:none}
+.cert-logo{font-size:36px;margin-bottom:6px}
+.cert-issuer{font-size:12px;font-weight:700;letter-spacing:0.12em;color:#1a6e52;text-transform:uppercase;margin-bottom:2px}
+.cert-title{font-size:22px;font-weight:700;color:#111;margin:12px 0 4px;line-height:1.3}
+.cert-subtitle{font-size:13px;color:#666;margin-bottom:18px}
+.cert-presented{font-size:13px;color:#888;margin-bottom:4px}
+.cert-name{font-size:28px;font-weight:700;color:#1a6e52;font-style:italic;margin-bottom:18px;border-bottom:2px solid #e0f0e8;padding-bottom:12px}
+.cert-body{font-size:14px;color:#555;margin-bottom:6px}
+.cert-score{display:inline-block;background:#edfaf4;border:1px solid #1a6e52;border-radius:99px;padding:5px 18px;font-size:14px;font-weight:700;color:#1a6e52;margin-bottom:18px}
+.cert-meta{display:flex;justify-content:space-around;border-top:1px solid #e8e8e8;padding-top:16px;margin-top:6px;flex-wrap:wrap;gap:10px}
+.cert-meta-item{text-align:center}
+.cert-meta-label{font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:2px}
+.cert-meta-value{font-size:13px;font-weight:700;color:#333}
+.cert-num-box{background:#f8f8f4;border:1px solid #ddd;border-radius:8px;padding:12px 16px;margin:16px 0 8px;text-align:center}
+.cert-num-label{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+.cert-num{font-family:monospace;font-size:22px;font-weight:700;color:#1a3a6e;letter-spacing:0.08em}
+.cert-verify-note{font-size:12px;color:#888;margin-top:4px}
+
+/*  VERIFIER TOOL  */
+.verifier{background:#fff;border:1px solid #ddd;border-radius:12px;padding:18px 20px;margin-top:24px}
+.verifier h3{margin-bottom:6px}
+.ver-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.ver-input{flex:1;min-width:180px;font-family:monospace;font-size:16px;padding:9px 13px;border:1px solid #bbb;border-radius:8px;outline:none;letter-spacing:0.05em;text-transform:uppercase}
+.ver-input:focus{border-color:#1a6e52;box-shadow:0 0 0 3px rgba(26,110,82,0.12)}
+.ver-result{margin-top:10px;padding:10px 14px;border-radius:8px;font-size:14px;display:none}
+.ver-result.valid{background:#d4f5e9;color:#0a3a28;border:1px solid #1a6e52;display:block}
+.ver-result.invalid{background:#fdeaea;color:#6a1010;border:1px solid #d93535;display:block}
+
+@media(max-width:520px){
+  .card-grid{grid-template-columns:1fr}
+  .grounds-grid{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:19px}
+  .btn{padding:9px 14px;font-size:13px}
+  .cert{padding:24px 16px}
+  .cert-name{font-size:22px}
+}
+@media print{
+  body{background:#fff}
+  .page{padding:0}
+  .progress-wrap,.progress-label,.nav-dots,.btn-row,.verifier,.cert-num-box+p,.name-prompt{display:none!important}
+  .slide{display:none!important}
+  .cert-wrap{display:block!important}
+  .cert{border:3px solid #1a6e52;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="progress-wrap"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+<div class="progress-label" id="counter">Introduction</div>
+<div class="nav-dots" id="dots"></div>
+
+<!-- SLIDE 0: TITLE -->
+<div class="slide active" id="s0">
+  <h1>Workplace Harassment &amp; Discrimination Prevention</h1>
+  <p>Required training for all staff &mdash; Alberta and Canada Human Rights &mdash; approximately 30 minutes</p>
+  <div class="box-blue"><p>This training covers your rights and responsibilities under the <strong>Alberta Human Rights Act</strong>, the <strong>Canadian Human Rights Act</strong>, and Alberta&apos;s <strong>Occupational Health and Safety (OHS) Act</strong>.</p></div>
+  <div class="card">
+    <h3>What you will cover</h3>
+    <div class="toc-item"><div class="toc-num">1</div>Legal framework &amp; protected grounds</div>
+    <div class="toc-item"><div class="toc-num">2</div>Harassment &amp; discrimination defined</div>
+    <div class="toc-item"><div class="toc-num">3</div>Sexual harassment</div>
+    <div class="toc-item"><div class="toc-num">4</div>Rights &amp; responsibilities</div>
+    <div class="toc-item"><div class="toc-num">5</div>Bystander responsibility</div>
+    <div class="toc-item"><div class="toc-num">6</div>Reporting</div>
+    <div class="toc-item"><div class="toc-num">7</div>What happens after a complaint</div>
+    <div class="toc-item"><div class="toc-num">8</div>Anti-racism in the workplace</div>
+    <div class="toc-item"><div class="toc-num">9</div>Workplace scenarios</div>
+    <div class="toc-item"><div class="toc-num">10</div>Knowledge test (10 questions &mdash; 80% to pass)</div>
+  </div>
+  <div class="box-green"><p><strong>On completion:</strong> If you pass the test you will receive a personalized certificate with a unique certificate number. You will need to enter this number into the completion form provided by HR to confirm your training.</p></div>
+  <div class="btn-row"><button class="btn btn-primary" onclick="go(1)">Begin Training &rarr;</button></div>
+</div>
+
+<!-- SLIDE 1: LEGAL + GROUNDS -->
+<div class="slide" id="s1">
+  <div class="sbanner"><div class="snum">SECTION 1 OF 10</div><h1>Legal Framework &amp; Protected Grounds</h1></div>
+  <h2>The laws that protect you</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="tag tag-blue">Provincial</div>
+      <h3>Alberta Human Rights Act</h3>
+      <p>Prohibits discrimination and harassment in employment, services, and tenancy. Administered by the Alberta Human Rights Commission (AHRC).</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-teal">Provincial</div>
+      <h3>OHS Act</h3>
+      <p>Since 2018, requires employers to address workplace harassment and violence, and to maintain a written harassment prevention plan.</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-purple">Federal</div>
+      <h3>Canadian Human Rights Act</h3>
+      <p>Applies to federally regulated workplaces (banks, airlines, telecoms, federal government). Administered by the Canadian Human Rights Commission.</p>
+    </div>
+  </div>
+  <h2>Protected grounds under the Alberta Human Rights Act</h2>
+  <p>These personal characteristics cannot be the basis for adverse treatment in the workplace:</p>
+  <div class="grounds-grid">
+    <div class="ground-pill">Race</div>
+    <div class="ground-pill">Colour</div>
+    <div class="ground-pill">Ancestry &amp; place of origin</div>
+    <div class="ground-pill">Religious beliefs</div>
+    <div class="ground-pill">Gender</div>
+    <div class="ground-pill">Gender identity</div>
+    <div class="ground-pill">Gender expression</div>
+    <div class="ground-pill">Sexual orientation</div>
+    <div class="ground-pill">Marital status</div>
+    <div class="ground-pill">Family status</div>
+    <div class="ground-pill">Physical disability</div>
+    <div class="ground-pill">Mental disability</div>
+    <div class="ground-pill">Age (18+)</div>
+    <div class="ground-pill">Source of income</div>
+  </div>
+  <div class="box-blue"><p><strong>Gender identity and gender expression</strong> are explicitly protected in Alberta. Protection also applies where a characteristic is <em>perceived</em>, or where a person is associated with someone who has a protected characteristic.</p></div>
+  <div class="kc-block">
+    <div class="kc-label">Quick Check</div>
+    <div class="kc-q">Which body administers the Alberta Human Rights Act?</div>
+    <button class="quiz-option" onclick="kc(this,'correct','kc1')">The Alberta Human Rights Commission (AHRC)</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc1')">The Canadian Labour Relations Board</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc1')">Employment Standards</button>
+    <div class="feedback" id="kc1"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(0)">&larr; Back</button><button class="btn btn-primary" onclick="go(2)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 2: HARASSMENT + DISCRIMINATION -->
+<div class="slide" id="s2">
+  <div class="sbanner"><div class="snum">SECTION 2 OF 10</div><h1>Harassment &amp; Discrimination Defined</h1></div>
+  <h2>Harassment</h2>
+  <p>Harassment is a form of discrimination under the Alberta Human Rights Act. It occurs when unwelcome conduct related to a <strong>protected ground</strong> creates a hostile or offensive work environment. A <strong>single serious incident</strong> can constitute harassment &mdash; repeated conduct is not always required.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Examples of harassment</h3>
+      <ul>
+        <li>Racial slurs or jokes</li>
+        <li>Mocking someone&apos;s religion</li>
+        <li>Misgendering someone repeatedly after correction</li>
+        <li>Excluding someone due to a disability</li>
+        <li>Spreading rumours about sexual orientation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>What harassment is NOT</h3>
+      <ul>
+        <li>Reasonable performance management</li>
+        <li>Legitimate criticism delivered respectfully</li>
+        <li>Disagreements unrelated to a protected ground</li>
+        <li>Ordinary workplace stress</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box-green"><p><strong>Intent does not determine whether harassment occurred.</strong> If conduct is unwelcome and connected to a protected ground, it may be harassment even if the person meant no harm.</p></div>
+  <h2>Discrimination</h2>
+  <p>Discrimination is adverse treatment in employment because of a protected ground. It takes three forms:</p>
+  <table>
+    <tr><th>Type</th><th>What it means</th><th>Example</th></tr>
+    <tr><td><strong>Direct</strong></td><td>Explicit adverse treatment</td><td>Refusing to promote based on religion</td></tr>
+    <tr><td><strong>Indirect</strong></td><td>Neutral policy with disproportionate impact</td><td>&ldquo;No headwear&rdquo; rule affecting faith communities</td></tr>
+    <tr><td><strong>Systemic</strong></td><td>Embedded patterns disadvantaging a group</td><td>Hiring criteria that screen out certain ethnicities</td></tr>
+  </table>
+  <h2>Discrimination in employment covers:</h2>
+  <table>
+    <tr><th>Area</th><th>Examples</th></tr>
+    <tr><td>Hiring</td><td>Discriminatory interview questions; refusing to hire based on name or ethnicity</td></tr>
+    <tr><td>Compensation</td><td>Paying less due to gender or disability</td></tr>
+    <tr><td>Promotion</td><td>Bypassing qualified candidates based on age or religion</td></tr>
+    <tr><td>Termination</td><td>Firing someone because of pregnancy, disability, or family status</td></tr>
+    <tr><td>Working conditions</td><td>Assigning inferior tasks based on protected grounds</td></tr>
+  </table>
+  <div class="card">
+    <h3>Duty to accommodate</h3>
+    <p>Employers must accommodate needs related to protected grounds (disability, religion, pregnancy, family status) up to the point of <strong>undue hardship</strong>. Employees must cooperate in finding workable solutions.</p>
+  </div>
+  <div class="kc-block">
+    <div class="kc-label">Quick Check</div>
+    <div class="kc-q">A manager delivers harsh but work-related criticism about an employee&apos;s report. This is most likely:</div>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc2')">Harassment under the Human Rights Act</button>
+    <button class="quiz-option" onclick="kc(this,'correct','kc2')">Legitimate management if unrelated to a protected ground</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc2')">Only acceptable if done in private</button>
+    <div class="feedback" id="kc2"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(1)">&larr; Back</button><button class="btn btn-primary" onclick="go(3)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 3: SEXUAL HARASSMENT -->
+<div class="slide" id="s3">
+  <div class="sbanner"><div class="snum">SECTION 3 OF 10</div><h1>Sexual Harassment</h1></div>
+  <p>Sexual harassment is gender-based harassment and discrimination, prohibited under the Alberta Human Rights Act and the OHS Act. It can occur between any genders, in any direction &mdash; peer-to-peer, manager-to-employee, or employee-to-manager.</p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="tag tag-red">Quid pro quo</div>
+      <h3>&ldquo;This for that&rdquo;</h3>
+      <p>A person in authority makes employment decisions (hiring, scheduling, promotion) conditional on sexual favours.</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-amber">Hostile environment</div>
+      <h3>Persistent unwelcome conduct</h3>
+      <p>Conduct severe or pervasive enough to create an intimidating, hostile, or abusive work environment.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Examples include</h3>
+    <ul>
+      <li>Unwanted touching or physical contact</li>
+      <li>Sexual comments, jokes, or innuendo</li>
+      <li>Displaying or sending sexual images or messages</li>
+      <li>Repeated unwanted romantic overtures after a clear refusal</li>
+    </ul>
+  </div>
+  <div class="box-red"><p>Victims are <strong>never</strong> responsible for harassment directed at them. <strong>Retaliation against someone who reports sexual harassment is itself a human rights violation.</strong> A victim&apos;s silence or discomfort &mdash; without a verbal objection &mdash; still indicates the conduct is unwelcome.</p></div>
+  <div class="box-green"><p>A harassment-free workplace is a <strong>legal right</strong>. Victims are never responsible for harassment directed at them. Retaliation against someone who reports sexual harassment is itself a violation of human rights law.</p></div>
+  <div class="scenario">
+    <div class="sc-label">Scenario</div>
+    <p>A supervisor tells a team member they will receive a shift preference &ldquo;if they&apos;re friendly enough.&rdquo; The employee feels uncomfortable but says nothing and avoids the supervisor. <strong>This is quid pro quo sexual harassment</strong> &mdash; the employee&apos;s discomfort, even without a verbal objection, indicates the conduct is unwelcome.</p>
+  </div>
+  <div class="kc-block">
+    <div class="kc-label">Quick Check</div>
+    <div class="kc-q">Sexual harassment can only be committed by someone in a position of authority over the victim.</div>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc3')">True</button>
+    <button class="quiz-option" onclick="kc(this,'correct','kc3')">False &mdash; it can occur between coworkers or from employee to manager</button>
+    <div class="feedback" id="kc3"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(2)">&larr; Back</button><button class="btn btn-primary" onclick="go(4)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 4: RIGHTS + RESPONSIBILITIES -->
+<div class="slide" id="s4">
+  <div class="sbanner"><div class="snum">SECTION 4 OF 10</div><h1>Rights &amp; Responsibilities</h1></div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>All employees have the right to:</h3>
+      <ul>
+        <li>Work free from harassment and discrimination</li>
+        <li>File a complaint without fear of retaliation</li>
+        <li>Request accommodation for protected grounds</li>
+        <li>Know your employer&apos;s harassment prevention policy</li>
+        <li>Participate in investigations as a witness</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>All employees are responsible to:</h3>
+      <ul>
+        <li>Treat colleagues with dignity and respect</li>
+        <li>Report harassment or discrimination they experience or witness</li>
+        <li>Cooperate with workplace investigations</li>
+        <li>Participate in accommodation processes</li>
+        <li>Complete required training</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Employer and supervisor obligations</h3>
+    <p>Employers must maintain a harassment-free workplace and &mdash; under the OHS Act for organizations with 20+ employees &mdash; maintain a written harassment prevention plan. Supervisors must model respectful conduct, address concerns brought to them, avoid retaliating against those who report, and promptly escalate complaints. <strong>Employers can be vicariously liable</strong> for harassment by supervisors or staff if they knew or ought to have known and failed to act.</p>
+  </div>
+  <div class="kc-block">
+    <div class="kc-label">Quick Check</div>
+    <div class="kc-q">If a supervisor ignores a harassment complaint, what is the likely result?</div>
+    <button class="quiz-option" onclick="kc(this,'correct','kc4')">The employer and possibly the supervisor could be held liable</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc4')">Only the harasser bears responsibility</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc4')">No liability if the supervisor did not personally harass anyone</button>
+    <div class="feedback" id="kc4"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(3)">&larr; Back</button><button class="btn btn-primary" onclick="go(5)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 5: BYSTANDER RESPONSIBILITY -->
+<div class="slide" id="s5">
+  <div class="sbanner"><div class="snum">SECTION 5 OF 10</div><h1>Bystander Responsibility</h1></div>
+  <p>If you witness harassment or discrimination, you have both a moral and a legal obligation to respond. Remaining silent or passive when you observe misconduct can enable it to continue.</p>
+  <div class="card">
+    <h3>The bystander&apos;s role</h3>
+    <p>Alberta&apos;s OHS Act recognizes that workers have a responsibility to report unsafe conditions &mdash; including harassment &mdash; that they observe. You do not have to wait for the victim to act. Reporting what you have witnessed, even confidentially, is both permitted and encouraged.</p>
+  </div>
+  <div class="card-grid">
+    <div class="card"><div class="tag tag-teal">Direct</div><h3>Speak up in the moment</h3><p>If safe to do so, name what you are seeing: &ldquo;That comment was inappropriate and I think you should apologize.&rdquo; Even a brief, calm statement can halt the behaviour.</p></div>
+    <div class="card"><div class="tag tag-blue">Delegate</div><h3>Involve someone else</h3><p>Alert a supervisor, HR, or another trusted person. You do not need to handle it alone.</p></div>
+    <div class="card"><div class="tag tag-purple">Delay</div><h3>Check in afterwards</h3><p>If you cannot act in the moment, check in with the person who was targeted. Ask if they are okay and whether they would like support in reporting.</p></div>
+    <div class="card"><div class="tag tag-amber">Document</div><h3>Record what happened</h3><p>Write down the date, time, location, what was said or done, and who was present. This can be critical evidence in an investigation.</p></div>
+  </div>
+  <div class="box-red"><p>Retaliation against someone for reporting harassment &mdash; or for being a witness &mdash; is illegal under the Alberta Human Rights Act. <strong>You are protected for speaking up.</strong></p></div>
+  <div class="scenario">
+    <div class="sc-label">Scenario</div>
+    <p>You overhear a colleague making repeated mocking comments about a coworker&apos;s accent during a team lunch. The targeted colleague looks uncomfortable but says nothing. What should you do? <strong>Document what you observed, check in with your colleague afterwards, and consider reporting to management even if the colleague does not.</strong></p>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(4)">&larr; Back</button><button class="btn btn-primary" onclick="go(6)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 6: REPORTING -->
+<div class="slide" id="s6">
+  <div class="sbanner"><div class="snum">SECTION 6 OF 10</div><h1>Reporting</h1></div>
+  <p>If you experience, witness, or have knowledge of a workplace incident, you are encouraged to take the following steps.</p>
+  <div class="card"><div class="tag tag-teal">Step 1</div><h3>Address the conduct directly (if comfortable)</h3><p>If you feel safe and comfortable doing so, make it known to the person that their conduct is unwelcome and ask them to stop. You are never required to confront someone directly, and you should only do this if you feel it is safe.</p></div>
+  <div class="card"><div class="tag tag-blue">Step 2</div><h3>Report internally</h3><p>Report any incidents to your supervisor or another member of the management team. Incidents should be directed to:</p>
+    <ul style="margin-top:8px">
+      <li><strong>Department Head</strong></li>
+      <li><strong>Producer</strong></li>
+      <li><strong>Donna Serafinus</strong> at Seven24 Films &mdash; <a href="mailto:donna@seven24films.com" style="color:#1a3a6e">donna@seven24films.com</a></li>
+      <li><strong>Confidential reporting:</strong> <a href="mailto:heartlandconfidential@gmail.com" style="color:#1a3a6e">heartlandconfidential@gmail.com</a></li>
+    </ul>
+  </div>
+  <div class="card"><div class="tag tag-purple">Step 3 &mdash; Last resort</div><h3>External complaint (only after exhausting internal avenues)</h3><p>If you have reported the matter internally, notified the company that it remains unresolved, and have not received a response, you may as a last resort file a complaint with an external body:</p>
+    <ul style="margin-top:8px">
+      <li><strong>Alberta Human Rights Commission (AHRC)</strong> &mdash; within one year of the last incident &mdash; 1-800-232-7215 | ahrc.ca</li>
+      <li><strong>Alberta Occupational Health &amp; Safety (OHS)</strong> &mdash; if the employer has failed to meet its OHS obligations</li>
+      <li><strong>Canadian Human Rights Commission</strong> &mdash; for federally regulated employees, within one year of the last incident</li>
+    </ul>
+  </div>
+  <div class="box-red"><p><strong>No retaliation:</strong> Reporting an incident or acting as a witness is fully protected. Any retaliation &mdash; demotion, termination, or ostracism &mdash; is itself a human rights violation.</p></div>
+  <div class="kc-block">
+    <div class="kc-label">Quick Check</div>
+    <div class="kc-q">What is the general deadline to file a complaint with the Alberta Human Rights Commission?</div>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc5')">6 months from the incident</button>
+    <button class="quiz-option" onclick="kc(this,'correct','kc5')">1 year from the last incident</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc5')">2 years from the incident</button>
+    <button class="quiz-option" onclick="kc(this,'wrong','kc5')">There is no deadline</button>
+    <div class="feedback" id="kc5"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(5)">&larr; Back</button><button class="btn btn-primary" onclick="go(7)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 7: WHAT HAPPENS AFTER A COMPLAINT -->
+<div class="slide" id="s7">
+  <div class="sbanner"><div class="snum">SECTION 7 OF 10</div><h1>What Happens After a Complaint</h1></div>
+  <p>Understanding the process can reduce anxiety about coming forward. Here is what to expect after an incident is reported internally.</p>
+  <div class="card">
+    <div class="tag tag-teal">Internal process</div>
+    <h3>Workplace investigation</h3>
+    <p>The employer assigns an investigator (internal or external). Both parties are interviewed and can provide evidence, and witnesses, if applicable. The investigator produces findings and recommendations.</p>
+  </div>
+  <h2>Possible remedies</h2>
+  <table>
+    <tr><th>Type</th><th>Examples</th></tr>
+    <tr><td>Non-monetary</td><td>Apology; policy changes; training requirements; reinstatement</td></tr>
+    <tr><td>Organizational</td><td>Mandatory anti-harassment training; compliance monitoring</td></tr>
+  </table>
+  <div class="card">
+    <h3>Consequences for individuals who harass</h3>
+    <p>Depending on severity: verbal or written warning, mandatory training, demotion, transfer, suspension, or termination. In extreme cases involving assault or threats, criminal charges may also be pursued independently of the workplace process.</p>
+  </div>
+  <div class="box-green"><p>Complaints made in good faith that are not substantiated are <em>not</em> considered false complaints &mdash; the outcome of an investigation does not determine whether the person acted in good faith. False or malicious complaints are, however, themselves a policy violation.</p></div>
+  <div class="btn-row"><button class="btn" onclick="go(6)">&larr; Back</button><button class="btn btn-primary" onclick="go(8)">Next &rarr;</button></div>
+</div>
+
+
+<!-- SLIDE 8: ANTI-RACISM -->
+<div class="slide" id="s8">
+  <div class="sbanner"><div class="snum">SECTION 8 OF 10</div><h1>Anti-Racism in the Workplace</h1></div>
+  <p>Anti-racism goes beyond simply not being racist. It is an active, ongoing commitment to identifying, challenging, and changing the values, structures, and behaviours that perpetuate systemic racism &mdash; in our workplaces and in ourselves.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>What racism looks like at work</h3>
+      <ul>
+        <li>Racial slurs, jokes, or stereotyping</li>
+        <li>Exclusion or isolation based on race or colour</li>
+        <li>Assumptions about ability or competence tied to ethnicity</li>
+        <li>Dismissing someone&apos;s experience of racism</li>
+        <li>Policies or practices that disadvantage racialized groups</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>What anti-racism looks like</h3>
+      <ul>
+        <li>Speaking up when you witness racist conduct</li>
+        <li>Listening to and believing the experiences of racialized colleagues</li>
+        <li>Examining your own assumptions and biases</li>
+        <li>Advocating for equitable practices in hiring, promotion, and recognition</li>
+        <li>Continuing to learn &mdash; anti-racism is a practice, not a destination</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box-green"><p><strong>The difference between &ldquo;not racist&rdquo; and &ldquo;anti-racist&rdquo;:</strong> Being &ldquo;not racist&rdquo; is passive &mdash; it means avoiding racist behaviour yourself. Being <strong>anti-racist</strong> is active &mdash; it means taking deliberate steps to challenge racism when you encounter it, whether in individual conduct, team dynamics, or organizational practices.</p></div>
+
+  <h2>Understanding unconscious bias</h2>
+  <p>Unconscious bias refers to attitudes or stereotypes that affect our decisions and actions without our awareness. Everyone carries biases shaped by culture, media, and experience. In the workplace, unconscious bias can affect who gets hired, praised, mentored, or promoted.</p>
+  <div class="card-grid">
+    <div class="card">
+      <div class="tag tag-amber">Affinity bias</div>
+      <p>Favouring people who are similar to us in background, appearance, or experience.</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-red">Attribution bias</div>
+      <p>Crediting successes and failures differently depending on a person&apos;s race or background.</p>
+    </div>
+    <div class="card">
+      <div class="tag tag-purple">Microaggressions</div>
+      <p>Brief, everyday exchanges that send denigrating messages to members of marginalized groups &mdash; often unintentional but genuinely harmful.</p>
+    </div>
+  </div>
+
+  <div class="box-blue"><p><strong>Microaggressions are not &ldquo;minor&rdquo;:</strong> Comments like &ldquo;You speak such good English&rdquo; or &ldquo;Where are you really from?&rdquo; may seem harmless to the person saying them, but they communicate that someone is perceived as foreign or &ldquo;other.&rdquo; Cumulative exposure to microaggressions causes real psychological harm and contributes to a hostile work environment.</p></div>
+
+  <h2>Our commitment as a workplace</h2>
+  <p>We are committed to building a workplace where all people &mdash; regardless of race, colour, ancestry, or place of origin &mdash; are treated with dignity, have equitable access to opportunities, and feel genuinely included. This commitment belongs to every person on our team, not only to those who have experienced racism.</p>
+
+  <div class="card">
+    <h3>What you can do</h3>
+    <ul>
+      <li><strong>Educate yourself</strong> &mdash; seek out resources on anti-racism; do not rely solely on racialized colleagues to educate you</li>
+      <li><strong>Amplify marginalized voices</strong> &mdash; ensure the contributions and ideas of racialized colleagues are heard and credited</li>
+      <li><strong>Interrupt bias</strong> &mdash; when you notice biased language, assumptions, or decisions, say something respectfully</li>
+      <li><strong>Support those who report</strong> &mdash; if a colleague reports a racist incident, believe them and offer support</li>
+      <li><strong>Reflect regularly</strong> &mdash; consider how your own decisions at work may be influenced by bias</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="sc-label">Scenario</div>
+    <p>During a meeting, a colleague presents an idea that is met with silence. Ten minutes later, another colleague &mdash; who is white &mdash; says essentially the same thing and receives enthusiastic agreement. The first colleague, who is a person of colour, notices this pattern regularly. <strong>This is a form of racial bias.</strong> An anti-racist response is to name what happened: &ldquo;I want to go back &mdash; [name] suggested that idea earlier and I think it deserves a response.&rdquo;</p>
+  </div>
+
+  <div class="btn-row"><button class="btn" onclick="go(7)">&larr; Back</button><button class="btn btn-primary" onclick="go(9)">Next &rarr;</button></div>
+</div>
+
+<!-- SLIDE 6: SCENARIOS -->
+<div class="slide" id="s9">
+  <div class="sbanner"><div class="snum">SECTION 9 OF 10</div><h1>Workplace Scenarios</h1></div>
+  <p>Select the best response for each scenario.</p>
+  <div class="scenario">
+    <div class="sc-label">Scenario A &mdash; Religion</div>
+    <p><strong>Ahmed</strong> is Muslim and observes Ramadan. His manager schedules mandatory team lunches daily and says, &ldquo;If prayer is more important than the team, maybe this isn&apos;t the right job.&rdquo;</p>
+    <button class="quiz-option" onclick="sc(this,'correct','scA')">Harassment and discrimination based on religious beliefs &mdash; accommodation must be explored</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scA')">Acceptable &mdash; attendance at team events is a legitimate expectation</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scA')">Only the comments are problematic, not the scheduling</button>
+    <div class="feedback" id="scA"></div>
+  </div>
+  <div class="scenario">
+    <div class="sc-label">Scenario B &mdash; Gender Identity</div>
+    <p><strong>Morgan</strong> is transgender and uses she/her pronouns. After sharing this, a coworker continues using incorrect pronouns and her former name at meetings, despite being corrected twice.</p>
+    <button class="quiz-option" onclick="sc(this,'correct','scB')">Harassment based on gender identity and gender expression &mdash; the employer must act</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scB')">A personal disagreement between coworkers, not a human rights issue</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scB')">Only becomes harassment after many more incidents</button>
+    <div class="feedback" id="scB"></div>
+  </div>
+  <div class="scenario">
+    <div class="sc-label">Scenario C &mdash; Family Status</div>
+    <p><strong>Diana</strong> returns from parental leave and is assigned to a lower-profile project. Her manager says, &ldquo;We thought you&apos;d want something less demanding now that you have a baby.&rdquo;</p>
+    <button class="quiz-option" onclick="sc(this,'wrong','scC')">The manager was being considerate &mdash; this is acceptable</button>
+    <button class="quiz-option" onclick="sc(this,'correct','scC')">Discrimination based on family status &mdash; reassignment based on parental status is prohibited</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scC')">Only an issue if Diana formally requested a different assignment</button>
+    <div class="feedback" id="scC"></div>
+  </div>
+  <div class="scenario">
+    <div class="sc-label">Scenario D &mdash; Disability Accommodation</div>
+    <p><strong>James</strong> has a visual disability and requests screen reader software. The employer responds: &ldquo;We don&apos;t have budget for that.&rdquo;</p>
+    <button class="quiz-option" onclick="sc(this,'wrong','scD')">The employer is not required to accommodate if it costs money</button>
+    <button class="quiz-option" onclick="sc(this,'correct','scD')">The employer must assess undue hardship before refusing &mdash; a budget claim alone is insufficient</button>
+    <button class="quiz-option" onclick="sc(this,'wrong','scD')">Only physical barrier accommodations are legally required</button>
+    <div class="feedback" id="scD"></div>
+  </div>
+  <div class="btn-row"><button class="btn" onclick="go(8)">&larr; Back</button><button class="btn btn-primary" onclick="go(10)">Proceed to Final Test &rarr;</button></div>
+</div>
+
+<!-- SLIDE 7: QUIZ -->
+<div class="slide" id="s10">
+  <div class="sbanner"><div class="snum">SECTION 10 OF 10</div><h1>Knowledge Test</h1></div>
+  <p>Answer all 10 questions. A score of <strong>8 out of 10 (80%)</strong> is required to pass. If you pass, you will be asked to enter your name to generate a personalized certificate with a unique certificate number &mdash; keep this number, you will need to enter it into the HR completion form.</p>
+  <div id="quiz-container"></div>
+  <div id="quiz-submit-row" class="btn-row" style="display:none">
+    <button class="btn btn-primary" onclick="submitQuiz()">Submit Answers</button>
+  </div>
+  <div id="quiz-results"></div>
+  <!-- Name prompt (shown after pass) -->
+  <div id="name-prompt" class="name-prompt" style="display:none">
+    <h2>You passed!</h2>
+    <p>Enter your full name exactly as it should appear on your certificate. Your certificate number will be generated automatically.</p>
+    <input type="text" id="cert-name-input" class="name-input" placeholder="Full name (e.g. Jane Smith)" maxlength="80" autocomplete="name">
+    <div class="name-err" id="name-err">Please enter your full name before generating the certificate.</div>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn btn-primary" onclick="generateCert()">Generate My Certificate &rarr;</button>
+    </div>
+  </div>
+  <!-- Certificate output -->
+  <div id="cert-wrap" class="cert-wrap" style="display:none"></div>
+  <div class="btn-row" style="margin-top:14px"><button class="btn" onclick="go(9)">&larr; Back to Scenarios</button></div>
+</div>
+
+</div><!-- /page -->
+
+<script>
+/* 
+   CERTIFICATE SYSTEM
+   Certificate format:  WH-YYYY-XXXX-CCCC
+     WH     = module code (Workplace Harassment)
+     YYYY   = 4-digit year
+     XXXX   = 4 hex chars derived from name + date (payload)
+     CCCC   = 4 hex chars checksum (verifier)
+   Verification: re-derive checksum from payload and year,
+   confirm it matches. No server needed.
+    */
+
+var MAGIC = 0x4AB71E; // secret constant baked into the build
+
+function hashStr(s) {
+  var h = 0x811c9dc5;
+  for (var i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = (h * 0x01000193) >>> 0;
+  }
+  return h;
+}
+
+function makePayload(name, year) {
+  var raw = hashStr(name.trim().toUpperCase() + "|" + year + "|" + MAGIC);
+  return ("0000" + (raw & 0xFFFF).toString(16).toUpperCase()).slice(-4);
+}
+
+function makeChecksum(payload, year) {
+  var raw = hashStr(payload + "|" + year + "|" + MAGIC + "|CHK");
+  return ("0000" + (raw & 0xFFFF).toString(16).toUpperCase()).slice(-4);
+}
+
+function buildCertNumber(name, year) {
+  var p = makePayload(name, year);
+  var c = makeChecksum(p, year);
+  return "WH-" + year + "-" + p + "-" + c;
+}
+
+function parseCertNumber(certNum) {
+  var parts = certNum.trim().toUpperCase().split("-");
+  if (parts.length !== 4 || parts[0] !== "WH") return null;
+  return { prefix: parts[0], year: parts[1], payload: parts[2], checksum: parts[3] };
+}
+
+function verifyCertNumber(certNum) {
+  var p = parseCertNumber(certNum);
+  if (!p) return { valid: false, reason: "Format is not recognised. Certificate numbers look like WH-2025-A3F7-9C2B." };
+  var yr = parseInt(p.year, 10);
+  if (isNaN(yr) || yr < 2025 || yr > 2099) return { valid: false, reason: "Year segment is not valid." };
+  if (!/^[0-9A-F]{4}$/.test(p.payload)) return { valid: false, reason: "Payload segment is not valid." };
+  if (!/^[0-9A-F]{4}$/.test(p.checksum)) return { valid: false, reason: "Checksum segment is not valid." };
+  var expected = makeChecksum(p.payload, p.year);
+  if (expected !== p.checksum) return { valid: false, reason: "Checksum does not match. This certificate number may have been altered or entered incorrectly." };
+  return { valid: true, year: p.year };
+}
+
+/* Certificate generator */
+var certGenerated = false;
+
+function generateCert() {
+  var nameVal = document.getElementById('cert-name-input').value.trim();
+  if (!nameVal || nameVal.length < 2) {
+    document.getElementById('name-err').style.display = 'block';
+    return;
+  }
+  document.getElementById('name-err').style.display = 'none';
+  document.getElementById('name-prompt').style.display = 'none';
+  certGenerated = true;
+
+  var now = new Date();
+  var year = now.getFullYear().toString();
+  var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var dateStr = months[now.getMonth()] + " " + now.getDate() + ", " + year;
+  var certNum = buildCertNumber(nameVal, year);
+
+  var html = '<div class="cert">';
+  html += '<div class="cert-logo">&#127815;</div>';
+  html += '<div class="cert-issuer">Certificate of Completion</div>';
+  html += '<div class="cert-title">Workplace Harassment &amp; Discrimination Prevention</div>';
+  html += '<div class="cert-subtitle">Alberta and Canada Human Rights Training</div>';
+  html += '<div class="cert-presented">This certifies that</div>';
+  html += '<div class="cert-name">' + escHtml(nameVal) + '</div>';
+  html += '<div class="cert-body">has successfully completed the required training module and demonstrated knowledge of workplace harassment and discrimination prevention obligations under the <strong>Alberta Human Rights Act</strong>, the <strong>Canadian Human Rights Act</strong>, and the <strong>Alberta OHS Act</strong>.</div>';
+  html += '<div class="cert-score">Score: ' + passScore + ' / 10 &nbsp;&mdash;&nbsp; PASSED</div>';
+  html += '<div class="cert-meta">';
+  html += '<div class="cert-meta-item"><div class="cert-meta-label">Date Issued</div><div class="cert-meta-value">' + dateStr + '</div></div>';
+  html += '<div class="cert-meta-item"><div class="cert-meta-label">Module Version</div><div class="cert-meta-value">AB-HR-2025</div></div>';
+  html += '<div class="cert-meta-item"><div class="cert-meta-label">Passing Threshold</div><div class="cert-meta-value">80% (8/10)</div></div>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '<div class="cert-num-box">';
+  html += '<div class="cert-num-label">Your Unique Certificate Number</div>';
+  html += '<div class="cert-num">' + certNum + '</div>';
+  html += '<div class="cert-verify-note">Enter this number into the HR completion form. HR can verify it above using the verification tool.</div>';
+  html += '</div>';
+
+  html += '<div class="box-blue" style="margin-top:10px"><p><strong>Next step:</strong> Copy your certificate number &mdash; <strong>' + certNum + '</strong> &mdash; and paste it into the HR completion form. Then use the print button below to save or print your certificate for your own records.</p></div>';
+
+  html += '<div class="btn-row" style="justify-content:center;margin-top:8px">';
+  html += '<button class="btn btn-print" onclick="window.print()">&#128438; Print / Save as PDF</button>';
+  html += '</div>';
+
+  document.getElementById('cert-wrap').innerHTML = html;
+  document.getElementById('cert-wrap').style.display = 'block';
+  document.getElementById('cert-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+
+/*  QUIZ  */
+var Q=[
+  {q:"Which of the following is a protected ground under the Alberta Human Rights Act?",opts:["Political opinion","Source of income","Criminal record","Citizenship status"],c:1,e:"Source of income is a protected ground under the Alberta Human Rights Act, protecting people from discrimination based on how they earn income."},
+  {q:"The duty to accommodate requires an employer to make changes until:",opts:["The accommodation costs any money","The point of undue hardship","The employee is fully satisfied","The end of the employee's probation period"],c:1,e:"The duty to accommodate extends to the point of undue hardship, taking into account cost, health, safety, and operational impact."},
+  {q:"A single incident can constitute harassment under Alberta's human rights framework.",opts:["True -- if the incident is sufficiently serious","False -- harassment always requires repeated conduct","True -- but only if it is physical","False -- only a pattern of behaviour qualifies"],c:0,e:"A single serious incident can constitute harassment depending on its severity. Repeated conduct is not always required."},
+  {q:"Which legislation requires Alberta employers to have a written harassment prevention plan?",opts:["Alberta Human Rights Act","Canada Labour Code","Occupational Health and Safety Act","Employment Standards Code"],c:2,e:"The Alberta OHS Act (amended 2018) requires employers with 20 or more employees to have a written harassment prevention plan."},
+  {q:"An employee is demoted after reporting harassment to HR. This is:",opts:["Acceptable if the employer has a valid business reason","A violation -- retaliation for reporting is prohibited","Acceptable during an ongoing investigation","Only prohibited if the original complaint was substantiated"],c:1,e:"Retaliation against someone for filing or participating in a human rights complaint is itself a human rights violation, regardless of the outcome."},
+  {q:"Gender identity and gender expression are protected grounds in Alberta.",opts:["True","False -- they are only federal protections","True -- but only in employment, not services","False -- only gender (sex) is protected provincially"],c:0,e:"Gender identity and gender expression are explicitly protected grounds under the Alberta Human Rights Act."},
+  {q:"What is the general deadline to file a complaint with the Alberta Human Rights Commission?",opts:["6 months from the incident","2 years from the incident","1 year from the last incident","There is no deadline"],c:2,e:"Complaints must generally be filed within one year of the last incident giving rise to the complaint."},
+  {q:"Indirect discrimination occurs when:",opts:["A supervisor directly insults an employee's ethnicity","A neutral policy has a disproportionate adverse effect on a protected group","An employee is fired without cause","A workplace is physically inaccessible"],c:1,e:"Indirect discrimination occurs when a neutral policy disproportionately impacts people based on a protected ground, without adequate justification or accommodation."},
+  {q:"An employer can be held liable for harassment committed by a supervisor even if the employer did not personally participate.",opts:["True -- employers can be vicariously liable","False -- only the individual harasser is responsible","True -- but only if the employer knew in advance","False -- liability requires direct employer involvement"],c:0,e:"Employers can be vicariously liable for discriminatory acts of supervisors and staff if they knew or ought to have known, and failed to take reasonable steps."},
+  {q:"Which of the following best describes 'quid pro quo' sexual harassment?",opts:["Creating a hostile environment through offensive comments","Making employment benefits conditional on sexual favours","Unwanted touching in the workplace","Sending inappropriate messages to a coworker"],c:1,e:"Quid pro quo means 'this for that' -- a person in authority conditions employment decisions on sexual favours."}
+];
+var ans={}, submitted=false, passScore=0;
+
+function buildQuiz(){
+  var h='';
+  for(var i=0;i<Q.length;i++){
+    h+='<div class="card" id="qq'+i+'" style="margin-bottom:12px">';
+    h+='<p style="font-weight:700;color:#222;margin-bottom:9px">'+(i+1)+'. '+Q[i].q+'</p>';
+    for(var j=0;j<Q[i].opts.length;j++){
+      h+='<button class="quiz-option" id="qo'+i+'_'+j+'" onclick="selQ('+i+','+j+')">'+Q[i].opts[j]+'</button>';
+    }
+    h+='<div class="feedback" id="qf'+i+'"></div></div>';
+  }
+  document.getElementById('quiz-container').innerHTML=h;
+  document.getElementById('quiz-submit-row').style.display='none';
+}
+
+function selQ(qi,oi){
+  if(submitted)return;
+  ans[qi]=oi;
+  for(var j=0;j<Q[qi].opts.length;j++){
+    var b=document.getElementById('qo'+qi+'_'+j);
+    b.style.fontWeight=(j===oi)?'600':'400';
+    b.style.background=(j===oi)?'#f0f0ea':'';
+    b.style.borderColor=(j===oi)?'#999':'';
+  }
+  if(Object.keys(ans).length===Q.length) document.getElementById('quiz-submit-row').style.display='flex';
+}
+
+function submitQuiz(){
+  if(submitted)return;
+  submitted=true;
+  var score=0;
+  for(var i=0;i<Q.length;i++){
+    var sel=ans[i],cor=Q[i].c;
+    for(var j=0;j<Q[i].opts.length;j++){
+      var b=document.getElementById('qo'+i+'_'+j);
+      b.disabled=true;b.style.fontWeight='400';b.style.background='';b.style.borderColor='';
+      if(j===cor)b.classList.add('show-correct');
+      if(j===sel&&sel!==cor)b.classList.add('incorrect');
+    }
+    var fb=document.getElementById('qf'+i);
+    if(sel===cor){score++;fb.className='feedback show correct';fb.innerHTML='&#10003; Correct. '+Q[i].e;}
+    else{fb.className='feedback show incorrect';fb.innerHTML='&#10007; '+(sel===undefined?'No answer selected. ':'Incorrect. ')+Q[i].e;}
+  }
+  passScore=score;
+  document.getElementById('quiz-submit-row').style.display='none';
+  var pct=Math.round(score/Q.length*100),passed=score>=8;
+  var r='<div class="result-box'+(passed?'':' fail')+'">';
+  r+='<div class="score-ring'+(passed?'':' fail')+'"><div class="score-num">'+score+'/10</div><div class="score-pct">'+pct+'%</div></div>';
+  r+='<h2 style="margin-bottom:9px">'+(passed?'You passed! Generate your certificate below.':'Additional review needed')+'</h2>';
+  r+='<p>'+(passed?'Scroll down to enter your name and generate your certificate. You will need the certificate number for the HR completion form.':'You scored below 80%. Please review the sections where you had difficulty and retake the test.')+'</p>';
+  if(!passed)r+='<div class="btn-row" style="justify-content:center;margin-top:12px"><button class="btn btn-primary" onclick="retake()">Retake Test</button></div>';
+  r+='</div>';
+  document.getElementById('quiz-results').innerHTML=r;
+  if(passed){
+    document.getElementById('name-prompt').style.display='block';
+    document.getElementById('name-prompt').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+
+function retake(){ans={};submitted=false;passScore=0;document.getElementById('quiz-results').innerHTML='';document.getElementById('name-prompt').style.display='none';document.getElementById('cert-wrap').style.display='none';document.getElementById('cert-wrap').innerHTML='';buildQuiz();}
+
+/*  NAV  */
+var N=11;
+function buildDots(){
+  var el=document.getElementById('dots');el.innerHTML='';
+  for(var i=0;i<N;i++){
+    var d=document.createElement('button');
+    d.className='dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','Section '+i);
+    (function(n){d.onclick=function(){go(n);};})(i);
+    el.appendChild(d);
+  }
+}
+var labels=['Introduction','Section 1 of 10: Legal Framework','Section 2 of 10: Harassment & Discrimination','Section 3 of 10: Sexual Harassment','Section 4 of 10: Rights & Responsibilities','Section 5 of 10: Bystander Responsibility','Section 6 of 10: Reporting','Section 7 of 10: What Happens After a Complaint','Section 8 of 10: Anti-Racism','Section 9 of 10: Scenarios','Section 10 of 10: Final Test'];
+function go(n){
+  for(var i=0;i<N;i++){var s=document.getElementById('s'+i);if(s)s.classList.remove('active');}
+  var t=document.getElementById('s'+n);if(t)t.classList.add('active');
+  var dots=document.querySelectorAll('.dot');
+  for(var i=0;i<dots.length;i++){dots[i].classList.remove('active');if(i<n)dots[i].classList.add('visited');else dots[i].classList.remove('visited');}
+  if(dots[n])dots[n].classList.add('active');
+  document.getElementById('prog').style.width=Math.round(n/(N-1)*100)+'%';
+  document.getElementById('counter').textContent=labels[n]||('Section '+n);
+  if(n===10&&!document.getElementById('quiz-container').innerHTML)buildQuiz();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function kc(btn,result,fbId){
+  var p=btn.parentElement,btns=p.querySelectorAll('.quiz-option');
+  var fb=document.getElementById(fbId);
+  if(result==='correct'){
+    /* Lock everything on a correct answer */
+    for(var i=0;i<btns.length;i++){btns[i].disabled=true;btns[i].classList.remove('incorrect');}
+    btn.classList.add('correct');
+    fb.className='feedback show correct';
+    fb.innerHTML='&#10003; Correct!';
+  } else {
+    /* Wrong: highlight this button red but keep others clickable */
+    for(var i=0;i<btns.length;i++){btns[i].classList.remove('incorrect');}
+    btn.classList.add('incorrect');
+    fb.className='feedback show incorrect';
+    fb.innerHTML='&#10007; Not quite &mdash; try again.';
+  }
+}
+function sc(btn,result,fbId){
+  var p=btn.parentElement,btns=p.querySelectorAll('.quiz-option');
+  for(var i=0;i<btns.length;i++)btns[i].disabled=true;
+  var fb=document.getElementById(fbId);
+  if(result==='correct'){btn.classList.add('correct');fb.className='feedback show correct';fb.innerHTML='&#10003; Correct &mdash; a protected ground is engaged and the employer has a duty to act.';}
+  else{btn.classList.add('incorrect');fb.className='feedback show incorrect';fb.innerHTML='&#10007; Review again &mdash; a protected ground is engaged and there is a legal obligation to respond.';}
+}
+buildDots();
+</script>
+</body>
+</html>
